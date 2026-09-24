@@ -203,3 +203,43 @@
   render();
   go(0, 'auto');
 })();
+
+
+/* Catalog filters and sorting — page-local behavior */
+(() => {
+  const grid = document.getElementById('catalogGrid');
+  if (!grid) return;
+  const cards = [...grid.querySelectorAll('.catalog-card')];
+  const filters = [...document.querySelectorAll('.catalog-filter')];
+  const sort = document.getElementById('catalogSort');
+  const empty = document.getElementById('catalogEmpty');
+  let activeFilter = 'all';
+  const apply = () => {
+    const visible = cards.filter(card => {
+      const match = activeFilter === 'all' || card.dataset.state === activeFilter;
+      card.hidden = !match;
+      return match;
+    });
+    const sorted = [...visible].sort((a,b) => {
+      if (!sort || sort.value === 'recommended') return Number(a.dataset.order) - Number(b.dataset.order);
+      const pa = Number(a.dataset.price || 0), pb = Number(b.dataset.price || 0);
+      if (sort.value === 'price-asc') return (pa || Infinity) - (pb || Infinity);
+      return (pb || -Infinity) - (pa || -Infinity);
+    });
+    sorted.forEach(card => grid.appendChild(card));
+    if (empty) empty.hidden = visible.length > 0;
+  };
+  filters.forEach(button => {
+    button.addEventListener('click', () => {
+      activeFilter = button.dataset.filter || 'all';
+      filters.forEach(item => {
+        const selected = item === button;
+        item.classList.toggle('is-active', selected);
+        item.setAttribute('aria-pressed', String(selected));
+      });
+      apply();
+    });
+  });
+  sort?.addEventListener('change', apply);
+  apply();
+})();
