@@ -78,7 +78,7 @@ a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}b
 .section-dark{background:var(--c-night-2);color:var(--c-text)}
 .section-with-cta{padding-bottom:0}
 .section-head{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(300px,.92fr);gap:var(--section-head-gap);align-items:end;margin-bottom:var(--section-head-bottom)}
-.section-head-main h2{margin:12px 0 0;max-width:900px;font-size:var(--section-title-size);line-height:var(--section-title-line);letter-spacing:-.045em;font-weight:760;text-wrap:balance}
+.section-head-main h2{margin:0;max-width:900px;font-size:var(--section-title-size);line-height:var(--section-title-line);letter-spacing:-.045em;font-weight:760;text-wrap:balance}
 .section-head-main h2 em{font-style:normal;color:inherit}
 .section-label{display:flex;align-items:center;gap:10px;margin:0;font-size:10px;line-height:1;text-transform:uppercase;letter-spacing:.15em;color:#706a62}
 .section-dark .section-label{color:#bdb8b0}
@@ -297,7 +297,7 @@ a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}b
 .section-head-main h2{
   width:100%;
   max-width:1200px;
-  margin:var(--section-content-gap,28px) auto 0;
+  margin:0 auto;
   font-family:Manrope,Arial,sans-serif;
   font-size:var(--cg-main-title);
   line-height:var(--cg-main-title-line);
@@ -467,7 +467,7 @@ a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}b
     --cg-card-body:14px;
   }
   .section-head{margin-bottom:32px}
-  .section-head-main h2{margin-top:24px;max-width:100%;line-height:1.02}
+  .section-head-main h2{margin-top:0;max-width:100%;line-height:1.02}
   .section-head-copy{margin-top:18px;max-width:100%}
   .section-lead{max-width:100%}
   .section-cta--center{margin-top:28px}
@@ -537,7 +537,7 @@ a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}b
 .section-head-main h2{
   width:100%;
   max-width:var(--cg-main-title-max);
-  margin:var(--section-content-gap,28px) auto 0;
+  margin:0 auto;
   font-family:Manrope,Arial,sans-serif;
   font-size:var(--cg-main-title);
   line-height:var(--cg-main-title-line);
@@ -714,7 +714,7 @@ a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}b
 .section-head-main h2{
   width:100%;
   max-width:var(--cg-main-title-max);
-  margin:var(--section-content-gap,28px) auto 0;
+  margin:0 auto;
   text-align:center;
   text-wrap:balance;
   overflow-wrap:break-word;
